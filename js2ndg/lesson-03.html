@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>Lesson 3 | It-Web 2017 Class T</title>
+
+		<!-- java script library -->
+		<script type="text/javascript" 
+			src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+		<!-- cascade style sheets (CSS) -->
+		<style type="text/css">
+			body {
+				background-color: white;
+				width: 600px;
+			}
+			span.term, span.operator, span.result {
+				font-size: 120%;
+			}
+			span.term {
+				color: blue;
+			}
+			span.result {
+				color: orange;
+				font-weight: bold;
+				border: 1px solid #000000;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Page Top -->
+		<h2>Let's Calculate</h2>
+
+		<!-- number terms to calc -->
+		<p class="term_area">
+			<span id="term_1" class="term">6</span>
+			<span class="operator">+</span>
+			<span id="term_2" class="term">5</span>
+		</p>
+
+		<!-- result -->
+		<p class="result_area">
+			Answer is <span id="result" class="result">??</span>
+		</p>
+
+		<!-- javascript program -->
+		<script type="text/javascript">
+		$(function(){
+			var number_1 = $('#term_1').text();
+			var number_2 = $('#term_2').text();
+			// alert("number[" + number + "]");
+			var result = [];
+			
+			// number_1 が1 ならば"1 !"
+			// 1 ではなかったら"Not 1. orz"
+			// とresultに出力する。
+			if (number_1 == 1) {
+				result.push("1 !");
+			} else {
+				result.push("Not 1. orz");
+			}
+			
+			// number_2 が 奇数 ならば"odd"
+			// 偶数なら "even"
+			// とresultに出力する。
+			if ((number_2 % 2) == 1) {
+				result.push("odd");
+			} else {
+				result.push("even");
+			}
+
+
+			// number_1, number_2 の両方について
+			// 奇数 ならば "odd"
+			// 偶数ではなかったら "even"
+			// とresultに出力する。
+			// 例）number_1 = 3, number_2 = 4 ならば、"odd-even"
+			if ((number_1 % 2) == 1) {
+				// --- number_1 is odd
+				if ((number_2 % 2) == 1) {
+					result.push("odd-odd");
+				} else {
+					result.push("odd-even");
+				}
+			} else {
+				// --- number_1 is even
+				if ((number_2 % 2) == 1) {
+					result.push("even-odd");
+				} else {
+					result.push("even-even");
+				}
+			}
+
+			// Home Work-1
+			// number_1 が 5 より大きかったら "Big !"
+			// ではなかったら "Small.."
+			// とresultに出力する。
+			if (number_1 > 5) {
+			    result.push("Big !");
+			} else {
+			    result.push("Small..");
+			}
+
+			// drill-01
+			// number_1 が number_2 より小さかったら"number_2 is bigger."
+			// 大きかったら "number_1 is bigger."
+			// とresultに表示
+			if (number_1 < number_2) {
+				result.push("drill-01:" + "number_2 is bigger.");
+			} else {
+				result.push("drill-01:" + "number_1 is bigger.");
+			}
+			
+			// drill-02
+			// fizz
+			// number_1を出力
+			// ただし、number_1 が3で割れるなら、続けて"fizz"を表示する
+			// 例）number_1 = 2 → "2"
+			//    number_1 = 6 → "6 fizz"
+			var out_string = number_1;
+			
+			if ((number_1 % 3) == 0) {
+				out_string = out_string + " fizz";
+			}
+
+			result.push("drill-02:" + out_string);
+			
+			// drill-03
+			// buzz
+			// number_2を出力
+			// ただし、number_2 が5で割れるなら、続けて"buzz"を表示する
+			// 例）number_2 = 6 → "6"
+			//    number_2 = 10 → "10 buzz"
+			var out_string = number_2;
+			
+			if ((number_2 % 5) == 0) {
+				out_string = out_string + " buzz";
+			}
+
+			result.push("drill-03:" + out_string);
+			
+			// drill-04
+			// fizz buzz
+			// number_1を出力
+			// ただし、number_1 が3で割れるなら、続けて"fizz"を表示する
+			// また、number_1 が5で割れるなら、続けて"buzz"を表示する
+			// 3でも5でも割れるなら 続けて "fizz buzz"
+			// 例）number_1 = 2 → "2"
+			//    number_1 = 6 → "6 fizz"
+			//    number_1 = 10 → "10 buzz"
+			//    number_1 = 15 → "15 fizz buzz"
+			var target_number = number_1;
+			var out_string = target_number;
+			
+			if ((target_number % 3) == 0) {
+				out_string = out_string + " fizz";
+			}
+			if ((target_number % 5) == 0) {
+				out_string = out_string + " buzz";
+			}
+
+			result.push("drill-04:" + out_string);
+			
+			// drill-05
+			// fizz buzz loop
+			// 1 から 30までのintegerで、drill-04のfizz buzzを行う
+			out_string = '';
+
+			// 2017-04-28 work-01
+			// number_1 を、３個ならべて出力する。
+			// 例）number_1 = 2 なら、"222"
+			var out_string = '';
+			out_string = number_1 + number_1 + number_1;
+			result.push(out_string);
+			
+
+			// 2017-04-28 work-02
+			// number_1 を、9個ならべて出力する。
+			// 例）number_1 = 2 なら、"222222222"
+			out_string = '';
+
+			var count = 1;
+			while (count <= 9) {
+
+				out_string = out_string + number_1;
+
+				count ++;
+			}
+
+			result.push(out_string);
+
+
+			// 2017-04-28 work-03
+			// 配列["dog:awake","cat:sleeping","sunfish:sleeping","crow:awake"]から、
+			// awake  だけ取り出す。
+			var animals = [
+				"dog:awake",
+				"cat:sleeping",
+				"sunfish:sleeping",
+				"crow:awake"
+				]; // Array
+			
+			var awakes = [];
+			
+			animals.forEach(function (item) {
+				if (item.endsWith("awake")) {
+					awakes.push(item);
+				}
+			});
+			result.push(awakes);
+
+
+			// 2017-04-28 work-0
+			// number_1 から number_2までの整数（Integer）を
+			// すべて並べてresultに表示。
+			// 例）number_1 = 3, number_2 = 6 ならば、"3,4,5,6"
+
+
+			$('#result').html(makeResultHtml(result));
+		});
+		
+		// ---- format Array Values
+		function makeResultHtml(resultArray) {
+			var resultHtmlArray = [];
+			if (!Array.isArray(resultArray)) {
+				// not array -> return forced toString() value.
+				return resultArray.toString();
+			}
+			resultArray.forEach(function (item) {
+				resultHtmlArray.push("<li>");
+				resultHtmlArray.push("\"" + item.toString() + "\"");
+				resultHtmlArray.push("</li>");
+			});
+			resultHtmlArray.unshift("<ol>");
+			resultHtmlArray.push("</ol>");
+			return resultHtmlArray.join('');
+		}
+		</script>
+	</body>
+</html>
