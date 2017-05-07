@@ -166,6 +166,20 @@
 			// fizz buzz loop
 			// 1 から 30までのintegerで、drill-04のfizz buzzを行う
 			out_string = '';
+			
+			for (var target_number = 1; target_number <= 30; target_number++) {
+				out_string = out_string + "[";
+				out_string = out_string + target_number;
+				if ((target_number % 3) == 0) {
+					out_string = out_string + " fizz";
+				}
+				if ((target_number % 5) == 0) {
+					out_string = out_string + " buzz";
+				}
+				out_string = out_string + "]<br>";
+			}
+
+			result.push("drill-05:<br>" + out_string);
 
 			// 2017-04-28 work-01
 			// number_1 を、３個ならべて出力する。
