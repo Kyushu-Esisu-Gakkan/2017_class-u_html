@@ -104,27 +104,36 @@
 
 			// drill-01
 			// number_1 が number_2 より小さかったら"number_2 is bigger."
-			// 大きかったら "number_1 is bigger."
+			// ではなかったら "number_1 is bigger."
+			// （発展課題：同じだったら"equal."）
 			// とresultに表示
 			if (number_1 < number_2) {
-				result.push("drill-01:" + "number_2 is bigger.");
+				result.push("number_2 is bigger.");
 			} else {
-				result.push("drill-01:" + "number_1 is bigger.");
+				result.push("number_1 is bigger.");
 			}
 			
+			if (number_1 < number_2) {
+				result.push("number_2 is bigger.");
+			} else if (number_1 > number_2) {
+				result.push("number_1 is bigger.");
+			} else {
+				result.push("equal.");
+			}
+
 			// drill-02
 			// fizz
 			// number_1を出力
 			// ただし、number_1 が3で割れるなら、続けて"fizz"を表示する
 			// 例）number_1 = 2 → "2"
 			//    number_1 = 6 → "6 fizz"
-			var out_string = number_1;
+			number_1 = 3;
 			
+			var out_string = number_1;
 			if ((number_1 % 3) == 0) {
 				out_string = out_string + " fizz";
 			}
-
-			result.push("drill-02:" + out_string);
+			result.push(out_string);
 			
 			// drill-03
 			// buzz
@@ -132,13 +141,6 @@
 			// ただし、number_2 が5で割れるなら、続けて"buzz"を表示する
 			// 例）number_2 = 6 → "6"
 			//    number_2 = 10 → "10 buzz"
-			var out_string = number_2;
-			
-			if ((number_2 % 5) == 0) {
-				out_string = out_string + " buzz";
-			}
-
-			result.push("drill-03:" + out_string);
 			
 			// drill-04
 			// fizz buzz
@@ -150,37 +152,12 @@
 			//    number_1 = 6 → "6 fizz"
 			//    number_1 = 10 → "10 buzz"
 			//    number_1 = 15 → "15 fizz buzz"
-			var target_number = number_1;
-			var out_string = target_number;
-			
-			if ((target_number % 3) == 0) {
-				out_string = out_string + " fizz";
-			}
-			if ((target_number % 5) == 0) {
-				out_string = out_string + " buzz";
-			}
 
-			result.push("drill-04:" + out_string);
-			
 			// drill-05
 			// fizz buzz loop
 			// 1 から 40までのintegerで、drill-04のfizz buzzを行う
-			out_string = '';
+				
 			
-			for (var target_number = 1; target_number <= 40; target_number++) {
-				out_string = out_string + "[";
-				out_string = out_string + target_number;
-				if ((target_number % 3) == 0) {
-					out_string = out_string + " fizz";
-				}
-				if ((target_number % 5) == 0) {
-					out_string = out_string + " buzz";
-				}
-				out_string = out_string + "]<br>";
-			}
-
-			result.push("drill-05:<br>" + out_string);
-
 			// 2017-04-28 work-01
 			// number_1 を、３個ならべて出力する。
 			// 例）number_1 = 2 なら、"222"
