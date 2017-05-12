@@ -5,7 +5,7 @@
 		<title>Lesson 3 | It-Web 2017 Class T</title>
 
 		<!-- java script library -->
-		<script type="text/javascript" 
+		<script type="text/javascript"
 			src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 		<!-- cascade style sheets (CSS) -->
@@ -51,7 +51,7 @@
 			var number_2 = $('#term_2').text();
 			// alert("number[" + number + "]");
 			var result = [];
-			
+
 			// number_1 が1 ならば"1 !"
 			// 1 ではなかったら"Not 1. orz"
 			// とresultに出力する。
@@ -60,7 +60,7 @@
 			} else {
 				result.push("Not 1. orz");
 			}
-			
+
 			// number_2 が 奇数 ならば"odd"
 			// 偶数なら "even"
 			// とresultに出力する。
@@ -112,7 +112,7 @@
 			} else {
 				result.push("number_1 is bigger.");
 			}
-			
+
 			if (number_1 < number_2) {
 				result.push("number_2 is bigger.");
 			} else if (number_1 > number_2) {
@@ -128,13 +128,13 @@
 			// 例）number_1 = 2 → "2"
 			//    number_1 = 6 → "6 fizz"
 			number_1 = 3;
-			
+
 			var out_string = number_1;
 			if ((number_1 % 3) == 0) {
 				out_string = out_string + " fizz";
 			}
 			result.push(out_string);
-			
+
 			// drill-03
 			// buzz
 			// number_2を出力
@@ -142,14 +142,14 @@
 			// 例）number_2 = 6 → "6"
 			//    number_2 = 10 → "10 buzz"
 			number_2 = 5;
-			
+
 			var out_string = number_2;
 			if ((number_2 % 5) == 0) {
 				out_string = out_string + " buzz";
 			}
 			result.push(out_string);
-			
-			
+
+
 			// drill-04
 			// fizz buzz
 			// number_1を出力
@@ -160,19 +160,45 @@
 			//    number_1 = 6 → "6 fizz"
 			//    number_1 = 10 → "10 buzz"
 			//    number_1 = 15 → "15 fizz buzz"
+			number_1 = 12;
+
+			out_string = number_1;
+			if ((number_1 % 3) == 0) {
+				out_string = out_string + " fizz";
+			}
+			if ((number_1 % 5) == 0) {
+				out_string = out_string + " buzz";
+			}
+
+			result.push(out_string);
+
 
 			// drill-05
 			// fizz buzz loop
 			// 1 から 40までのintegerで、drill-04のfizz buzzを行う
-				
-			
+
+			out_string = "";
+			for (var count = 1; count <= 40; count++) {
+				// count に対して fizz buzz
+				out_string = out_string + "<br>" + count;
+
+				if ((count % 3) == 0) {
+					out_string = out_string + " fizz";
+				}
+				if ((count % 5) == 0) {
+					out_string = out_string + " buzz";
+				}
+
+			}
+			result.push(out_string);
+
 			// 2017-04-28 work-01
 			// number_1 を、３個ならべて出力する。
 			// 例）number_1 = 2 なら、"222"
 			var out_string = '';
 			out_string = number_1 + number_1 + number_1;
 			result.push(out_string);
-			
+
 
 			// 2017-04-28 work-02
 			// number_1 を、9個ならべて出力する。
@@ -199,9 +225,9 @@
 				"sunfish:sleeping",
 				"crow:awake"
 				]; // Array
-			
+
 			var awakes = [];
-			
+
 			animals.forEach(function (item) {
 				if (item.endsWith("awake")) {
 					awakes.push(item);
@@ -218,7 +244,7 @@
 
 			$('#result').html(makeResultHtml(result));
 		});
-		
+
 		// ---- format Array Values
 		function makeResultHtml(resultArray) {
 			var resultHtmlArray = [];

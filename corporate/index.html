@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <title>FOREST STUDIO</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- 1. Link to jQuery (1.8 or later), -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> <!-- 33 KB -->
+
+    <!-- fotorama.css & fotorama.js. -->
+    <link href="fotorama-4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+    <script src="fotorama-4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
 </head>
 <body id="top" style="1024px;">
     <header>
         <img src="image/logo.png">
         <nav>
+            <hr>
             <ul>
                 <li><a href="#">ホーム</a></li>
                 <li><a href="#">企業情報</a></li>
@@ -20,20 +29,22 @@
     </header>
     <div class="contents">
         <div class="slide">
-            新しい文化を創る
-            情報やサービスに対して、誠実に事業を展開し
-            世界中の人々に笑顔を届けてまいります。
-            <ul>
-                <li>
-                    <img src="image/mainvisual.jpg" style="width: 100%;">
-                </li>
-                <li>
-                    <img src="image/mainvisual_2.jpg">
-                </li>
-                <li>
-                    <img src="image/mainvisual_3.jpg">
-                </li>
-            </ul>
+            <div class="overlap">
+                <p>
+                九州英数学館の想い<br><br>
+                新しい文化を創る<br><br>
+                情報やサービスに対して、<br>
+                誠実に事業を展開し<br>
+                世界中の人々に<br>
+                笑顔を届けてまいります。
+                </p>
+            </div>
+            <div class="fotorama" data-autoplay="3000">
+                <img src="image/top_image/18452183_126317094588110_1213723756_o.jpg" style="width: 100%;">
+                <img src="image/top_image/18452268_126317041254782_1022484415_o.jpg">
+                <img src="image/top_image/18493210_126317074588112_1879593461_o.jpg">
+                <img src="image/top_image/file_000.jpeg">
+            </div>
         </div>
         <div class="service">
             <h1>
@@ -66,7 +77,7 @@
                             Webな人の転職サイト『Find job!』
                             </li>
                         </ul>
-                    </li>                    
+                    </li>
                 </ul>
             </div>
             サービス一覧へ
@@ -81,7 +92,7 @@
             ニュースリリース
 
             <a>ニュース一覧へ</a>
-        </div>  
+        </div>
     </div>
     <footer>
         <p class="footer_top">
@@ -145,7 +156,7 @@
             </ul>
         </p>
         <p class="footer_copyright">© mixi, Inc. All rights reserved.</p>
-            
+
     </footer>
 </body>
 </html>

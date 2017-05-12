@@ -15,6 +15,11 @@ header {
     text-align: center;
 }
 
+header img {
+    height: 20px;
+    margin-top: 10px;
+}
+
 nav {
     width: 480px;
     margin-left: auto;
@@ -41,4 +46,25 @@ nav li {
 
 nav a {
     text-decoration: none;
+    color: #000000;
+}
+
+.overlap {
+    position: absolute;
+    z-index: 1;
+
+    width: 340px;
+    height: 240px;
+
+    left: 342px;
+    top: 200px;
+
+    color: #ffffff;
+    background-color: #00bfff;
+
+    filter:alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+
+    text-align: center;
 }
