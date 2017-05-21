@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>Lesson 4 | Class U, It-Web 2017</title>
+
+		<!-- java script library -->
+		<script type="text/javascript"
+			src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+		<!-- cascade style sheets (CSS) -->
+		<style type="text/css">
+			body {
+				background-color: white;
+				width: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Page Top -->
+		<h2>Let's JS</h2>
+
+		<!-- playground -->
+		<p id="play_ground">
+		</p>
+
+		<!-- javascript program -->
+		<script type="text/javascript">
+		$(function(){
+			var result = new Array();
+
+			// ==== Food Obj has name & cal
+			var Food = function(name, cal) {
+				this.name = name;
+				this.cal = cal;
+			};
+			Food.prototype.toString = function() {
+				return "{name:" + this.name + ", cal:" + this.cal + "}";
+			}
+
+			// ==== Write here
+
+			// -- drill-01
+			// 配列(はいれつ) array 「foods」を作る
+			// 中に4個以上の食べ物を追加（ついか）すること。
+			// 動作テスト：foods 配列の１個めを出力する。
+			//
+			var foods = [
+				new Food("Nepal Bento", 480),
+				new Food("Coke", 80),
+				new Food("牛丼",500),
+				new Food("チキン南蛮",600),
+				new Food("Milk tea",37),
+				new Food("から揚げ",500),
+				];
+
+			result.push(foods[3]); // test drill-01
+
+			// -- drill-02
+			// array 「foods」の２個めの要素について、
+			// カロリーが、200以下なら "OK!"
+			// 200オーバーなら、"Do not eat."
+			// とresult.pushする。
+			// 動作テスト：foodsに両方の値を入れて、確認。
+			var target = foods[3];
+			if (target.cal <= 200) {
+				result.push(target.name + " OK!");
+			} else {
+				result.push(target.name + " Do not eat.");
+			}
+
+
+			// -- drill-03
+			// array 「foods」の全部の要素について、
+			// カロリーをaddして（Totalして）
+			// result.pushして表示する。
+			// 動作テスト：手で計算したものと一致（いっち）するか、確認。
+			var total = 0;
+			foods.forEach(function (item) {
+				// item にfoodsの要素（ようそ）が順番（じゅんばん）にセットされます
+				//alert(item.cal);
+				total = total + item.cal;
+			});
+
+			result.push(total);
+
+			// -- drill-04
+			// array 「foods」の全部の要素について、
+			// カロリーをaddして（Totalして）
+			// 2000をオーバーしたらstopする。
+			// 2000を超えるまでは、たべられるものとして、
+			// result.pushして表示する。
+			var total = 0;
+			foods.forEach(function(item) {
+			    total += item.cal;
+			    if (total <= 2000) {
+			    	result.push(
+			    		item.name + "(" + item.cal + ")"
+			    		+ " total: " + total
+			    		);
+			    }
+			});
+
+			result.push("If eat next : " + total + " orz...");
+
+			$('#play_ground').html(makeResultHtml(result));
+		});
+
+		// ---- format Array Values
+		function makeResultHtml(resultArray) {
+			var resultHtmlArray = [];
+			if (!Array.isArray(resultArray)) {
+				// not array -> return forced toString() value.
+				return resultArray.toString();
+			}
+			resultArray.forEach(function (item) {
+				resultHtmlArray.push("<li>");
+				resultHtmlArray.push("\"" + item.toString() + "\"");
+				resultHtmlArray.push("</li>");
+			});
+			resultHtmlArray.unshift("<ol>");
+			resultHtmlArray.push("</ol>");
+			return resultHtmlArray.join('');
+		}
+		</script>
+	</body>
+</html>
