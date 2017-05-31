@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>Lesson 5 | Class U, It-Web 2017</title>
+
+		<!-- java script library -->
+		<script type="text/javascript"
+			src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+		<!-- cascade style sheets (CSS) -->
+		<style type="text/css">
+			body {
+				background-color: white;
+				width: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Page Top -->
+		<h2>Let's JS</h2>
+
+		<!-- playground -->
+		<p id="play_ground">
+		</p>
+
+		<!-- javascript program -->
+		<script type="text/javascript">
+		$(function(){
+			var result = new Array();
+
+			// ==== Write here
+
+			// -- drill-01
+			// ・変数（へんすう）str_inputを使（つか）う。
+			// ・prompt("Message String")を使って、str_inputにデータを受け取る。
+			// ・str_inputをresult.push()して、表示する。
+			// 動作テスト：入力（にゅうりょく）した値（あたい）と一致（いっち）するか確認。
+			var str_input;
+			str_input = prompt("Please Input..");
+
+			result.push(str_input); // output from drill-01
+
+			// -- drill-02
+			// ・drill-01で、str_inputに入力された値を、そのまま使用する。
+			// ・str_inputが数値（すうち）のとき、"(OK) [" + str_inputの値 + "] is number."
+			// ・str_inputが数値ではないとき、"(error) [" + str_inputの値 + "] is not number."
+			//   と表示する。
+			// ・数値かそうでないかの判断は、isNaN(確かめたい値)。
+			//    isNaN("23.4") → false
+			//    isNaN("abv") → true
+			//
+			// 動作テスト：最小（さいしょう）でも２回。
+			//   1. 数値を入力して、「(OK)〜」の表示を確認。
+			//   2. 数値でない文字列を入力して、「(error)〜」の表示を確認。
+			//
+			var str_out; // for output
+
+			if (isNaN(str_input)) {
+				// is NOT number
+				str_out = "(error) " + str_input + " is not number.";
+			} else {
+				// is number
+				str_out = "(OK) " + str_input + " is number.";
+			}
+
+			result.push(str_out); // output from drill-02
+
+			// -- drill-03
+			// ・drill-01で、str_inputに入力された値を、そのまま使用する。
+			//   (str_inputには、数値を入力する)
+			// ・str_inputが 5 より大きいなら、str_inputの値 + " > 5"
+			// ・str_inputが 5 以下なら、str_inputの値 + " <= 5"
+			//   と表示する。
+			//
+			// 動作テスト：????
+
+			if (str_input > 5) {
+				str_out = str_input + " > 5";
+			} else {
+				str_out = str_input + " <= 5";
+			}
+
+			result.push(str_out); // output from drill-03
+
+
+			$('#play_ground').html(makeResultHtml(result));
+		});
+
+		// ---- format Array Values
+		function makeResultHtml(resultArray) {
+			var resultHtmlArray = [];
+			if (!Array.isArray(resultArray)) {
+				// not array -> return forced toString() value.
+				return resultArray.toString();
+			}
+			resultArray.forEach(function (item) {
+				resultHtmlArray.push("<li>");
+				resultHtmlArray.push("\"" + item.toString() + "\"");
+				resultHtmlArray.push("</li>");
+			});
+			resultHtmlArray.unshift("<ol>");
+			resultHtmlArray.push("</ol>");
+			return resultHtmlArray.join('');
+		}
+		</script>
+	</body>
+</html>

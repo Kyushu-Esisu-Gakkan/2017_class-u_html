@@ -29,7 +29,7 @@ nav, .service, .news, footer {
     margin-bottom: 10px;
 }
 
-nav ul, .service-item ul {
+nav ul, .service-item ul, .footer_top ul {
     list-style-type: none;
     margin-top: 0;
     margin-bottom: 0;
@@ -99,3 +99,67 @@ nav a {
     margin-top: 12px;
 }
 
+.recruit {
+    position: relative;
+}
+.recruit img {
+    width: 100%;
+}
+
+.news h3{
+    text-align: left;
+    font-style: bold;
+    margin-top: 5px;
+    color: #808000;
+
+}
+
+.more {
+    height: 24px;
+    border:solid 1px;
+    background-color: #ffdead;
+    text-align:center;
+    font-style:bold;
+    padding-top: 10px;
+    padding-bottom:0px;
+    color:  #808000;
+
+}
+
+.overlap_recruit{
+    position: absolute;
+    color: #ffffff;
+    z-index: 1;
+    width: 416px;
+    left: 272px;
+    top: 100px;
+    text-align: center;
+}
+.recruit_info{
+    position: relative;
+    left: 90px;
+    background-color:white;
+    color: #000000;
+    text-align: center;
+    height: 36px;
+    width: 220px;
+    margin-top: 15px;
+    padding-top: 15px;
+    margin-right: 0px;
+}
+
+.footer_top li {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    height: 120px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-right: 20px;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.footer_top li:last-child {
+    margin-right: 0px;
+}
